@@ -20,13 +20,13 @@
                 <li><a href="#publications" class="nav-link">Publications</a></li>
                 <li><a href="#conferences" class="nav-link">Conferences</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero">
+    <section id="hero" class="hero page-section active">
         <div class="hero-content">
             <div class="hero-label">PhD Candidate • Louisiana State University • CFD + ML</div>
             <h1 class="hero-title">Haresh Chandrasekhar</h1>
@@ -36,7 +36,7 @@
             </p>
             <div class="hero-cta">
                 <a href="#research" class="btn btn-primary">View Research</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                <a href="mailto:hchand5@lsu.edu" class="btn btn-secondary">Get in Touch</a>
             </div>
             <div class="hero-links">
                 <a href="mailto:hchand5@lsu.edu" class="hero-link">
@@ -56,7 +56,7 @@
     </section>
 
     <!-- Research Section -->
-    <section id="research" class="section research-section">
+    <section id="research" class="section research-section page-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Research & Technical Projects</h2>
@@ -69,119 +69,57 @@
                     <h3>Hybrid-Neural Kernel Modeling of Turbulent Reacting Flows</h3>
                     <div class="research-meta">Louisiana State University • 2022-Present</div>
                     <p class="research-summary">
-                        Developed a deep neural kernel (DNK) framework that compresses flamelet tables by 99% (7 GB → 800 KB) 
-                        while preserving accuracy for spray flame simulations. Published in Combustion and Flame (2026).
+                        DNK framework: 99% flamelet table compression (7 GB → 800 KB) with preserved accuracy. Combustion and Flame (2026).
                     </p>
                     <button class="btn-text" onclick="toggleDetails('dnk')">Read more →</button>
                     
                     <div id="dnk-details" class="research-details">
-                        <p class="research-narrative">
-                            Designed a Similarity-Ordinated Balanced Clustering (SOBC) algorithm to group 29 chemical 
-                            species for efficient neural-network training, and coupled the ML models with the CONVERGE 
-                            CFD solver through TensorFlow C API and custom Python UDFs.
-                        </p>
-                        <p class="research-narrative">
-                            Validated the surrogate models on 3D ECN Spray A simulations across 800–1100 K, achieving 
-                            &lt;8% error in ignition delay and &lt;5% error in lift-off length while extending the method 
-                            to higher-dimensional UFPV tables.
-                        </p>
+                        <p class="research-narrative">SOBC clustering for species grouping; ML coupled to CONVERGE via TensorFlow C API. Validated on ECN Spray A (&lt;8% ignition delay, &lt;5% lift-off error).</p>
                         <div class="research-link">
-                            <a href="https://doi.org/10.1016/j.combustflame.2025.114635" target="_blank">
-                                View Publication in Combustion and Flame →
-                            </a>
+                            <a href="https://doi.org/10.1016/j.combustflame.2025.114635" target="_blank">View Publication →</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2: Two-Level Simulation - Compressible -->
-                <div class="research-item">
-                    <h3>Two-Level Simulation Model for Compressible Turbulent Scalar Mixing</h3>
-                    <div class="research-meta">UTC Chattanooga • 2022</div>
-                    <p class="research-summary">
-                        Assessed Two-Level Simulation (TLS) modeling assumptions for compressible scalar mixing at 
-                        convective Mach number 0.7 and Reynolds number 640 using Direct Numerical Simulation (DNS) 
-                        with fully compressible solver.
-                    </p>
-                    <button class="btn-text" onclick="toggleDetails('tls-compress')">Read more →</button>
-                    
-                    <div id="tls-compress-details" class="research-details">
-                        <p class="research-narrative">
-                            Applied a scale-separation methodology that decomposes scalar fields into large- and 
-                            small-scale components, solving simplified small-scale equations on embedded 1D lines 
-                            without traditional LES filtering.
-                        </p>
-                        <p class="research-narrative">
-                            Shown that the TLS model captures key subgrid physics, including counter-gradient transport, 
-                            anisotropy, and backscatter, with results presented at the 17th International Workshop on 
-                            Physics of Compressible Turbulent Mixing.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Project 3: Two-Level Simulation - Premixed -->
+                <!-- Project 2: Two-Level Simulation - Premixed -->
                 <div class="research-item">
                     <h3>Two-Level Simulation Model for Turbulent Premixed Flames</h3>
                     <div class="research-meta">UTC Chattanooga • 2022</div>
                     <p class="research-summary">
-                        Extended Two-Level Simulation framework to turbulent premixed methane-air flames using 4-step, 
-                        8-species mechanism on 256³ grid, validating modeling assumptions for finite-rate chemistry 
-                        in thin reaction zone regime.
+                        TLS for premixed methane-air (4-step, 8-species, 256³); validated in thin reaction zone regime.
                     </p>
                     <button class="btn-text" onclick="toggleDetails('tls-flame')">Read more →</button>
                     
                     <div id="tls-flame-details" class="research-details">
-                        <p class="research-narrative">
-                            Assessed TLS assumptions across preheat, reaction, and post-flame regions, obtaining 
-                            high correlations for small-scale derivatives and advection terms.
-                        </p>
-                        <p class="research-narrative">
-                            Demonstrated that solving large scales on a coarse 3D grid while modeling small scales on 
-                            1D lines offers a compact alternative to LES for turbulent premixed flames.
-                        </p>
+                        <p class="research-narrative">High correlation for small-scale terms; coarse 3D + 1D small-scale lines as compact LES alternative.</p>
                     </div>
                 </div>
 
-                <!-- Project 4: Plasma-Assisted Combustion -->
+                <!-- Project 3: Plasma-Assisted Combustion -->
                 <div class="research-item">
                     <h3>Non-Equilibrium Plasma-Assisted Combustion Kinetics</h3>
                     <div class="research-meta">Auburn University • 2019-2021</div>
                     <p class="research-summary">
-                        Built lab infrastructure and designed/operated purpose-built plasma-coupled flow reactor (PFR) 
-                        to investigate non-equilibrium plasma effects on iso-octane pyrolysis and oxidation kinetics 
-                        across 300-1200K temperature range.
+                        Plasma flow reactor (PFR) for iso-octane pyrolysis/oxidation (300–1200 K); 0D solver in Fortran + CHEMKIN.
                     </p>
                     <button class="btn-text" onclick="toggleDetails('plasma')">Read more →</button>
                     
                     <div id="plasma-details" class="research-details">
-                        <p class="research-narrative">
-                            Conducted isothermal flow-reactor experiments with nanosecond pulsed plasma discharge, 
-                            analyzing product species via GC-MS and supporting the work with a 0D plasma kinetic 
-                            solver in Fortran coupled to CHEMKIN.
-                        </p>
-                        <p class="research-narrative">
-                            Showed that non-equilibrium plasma markedly accelerates low-temperature fuel decomposition, 
-                            informing the design of low-temperature plasma ignition concepts for advanced engines.
-                        </p>
+                        <p class="research-narrative">Nanosecond plasma + GC-MS; plasma accelerates low-T decomposition (12th National Combustion Meeting).</p>
                     </div>
                 </div>
 
-                <!-- Project 5: Soot Formation -->
+                <!-- Project 4: Soot Formation -->
                 <div class="research-item">
                     <h3>Numerical Study of Soot Formation in Bio-Fuel Diffusion Flames</h3>
                     <div class="research-meta">Auburn University • 2019-2021</div>
                     <p class="research-summary">
-                        Developed laminar diffusion flame solver in OpenFOAM integrated with CRECK soot formation 
-                        model to numerically investigate sooting tendencies of IBE/diesel surrogate blends, analyzing 
-                        PAH formation pathways and soot precursor chemistry.
+                        OpenFOAM + CRECK soot model for IBE/diesel surrogate blends; PAH and soot precursor analysis.
                     </p>
                     <button class="btn-text" onclick="toggleDetails('soot')">Read more →</button>
                     
                     <div id="soot-details" class="research-details">
-                        <p class="research-narrative">
-                            Investigated soot formation for IBE/diesel surrogate blends in laminar diffusion flames and 
-                            co-authored work presented at the 12th U.S. National Combustion Meeting on cleaner-burning 
-                            alternative fuels.
-                        </p>
+                        <p class="research-narrative">Co-authored 12th U.S. National Combustion Meeting (sooting tendencies, alternative fuels).</p>
                     </div>
                 </div>
             </div>
@@ -189,7 +127,7 @@
     </section>
 
     <!-- Publications Section -->
-    <section id="publications" class="section publications-section">
+    <section id="publications" class="section publications-section page-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Publications</h2>
@@ -202,9 +140,7 @@
                     <h3 class="pub-title">A deep neural kernel approach with balanced clustering for flamelet modeling of spray flames</h3>
                     <p class="pub-authors"><strong>Haresh Chandrasekhar</strong>, Ope Owoyele</p>
                     <p class="pub-abstract">
-                        Introduces a hybrid neural-kernel framework for compact flamelet table representation, achieving 
-                        99% memory reduction (7 GB → 800 KB) while maintaining high accuracy for spray flame simulations 
-                        across 800–1100 K.
+                        Hybrid neural-kernel framework for compact flamelet tables (99% memory reduction, 7 GB → 800 KB); high accuracy for spray flames at 800–1100 K.
                     </p>
                     <div class="pub-links">
                         <a href="https://doi.org/10.1016/j.combustflame.2025.114635" class="pub-link" target="_blank">DOI: 10.1016/j.combustflame.2025.114635</a>
@@ -215,7 +151,7 @@
     </section>
 
     <!-- Conferences Section -->
-    <section id="conferences" class="section conferences-section">
+    <section id="conferences" class="section conferences-section page-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Conference Presentations</h2>
@@ -263,7 +199,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section skills-section">
+    <section id="skills" class="section skills-section page-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Technical Skills</h2>
@@ -344,48 +280,15 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery-section page-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Contact</h2>
-                <p class="section-subtitle">Open to roles and collaborations in CFD + ML, scientific computing, and reacting-flow modeling.</p>
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-subtitle">Visuals from research and projects.</p>
             </div>
-
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Haresh Chandrasekhar</h3>
-                    <p class="contact-position">PhD Candidate</p>
-                    <p class="contact-university">Louisiana State University<br>Mechanical Engineering Department</p>
-                    
-                    <div class="contact-links">
-                        <a href="mailto:hchand5@lsu.edu" class="contact-link">
-                            <span class="link-icon">📧</span>
-                            <span>hchand5@lsu.edu</span>
-                        </a>
-                        <a href="tel:+13345521513" class="contact-link">
-                            <span class="link-icon">📱</span>
-                            <span>(334) 552-1513</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/haresh-chandrasekhar" class="contact-link" target="_blank">
-                            <span class="link-icon">💼</span>
-                            <span>LinkedIn Profile</span>
-                        </a>
-                        <a href="https://github.com/ori0902" class="contact-link" target="_blank">
-                            <span class="link-icon">💻</span>
-                            <span>GitHub: ori0902</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="contact-cta">
-                    <div class="cta-box">
-                        <h3>Collaboration & roles</h3>
-                        <p>Interested in CFD + ML roles: surrogate modeling, solver development, and data-driven 
-                        simulation of reacting flows.</p>
-                        <a href="mailto:hchand5@lsu.edu" class="btn btn-primary">Send Email</a>
-                    </div>
-                </div>
+            <div class="gallery-grid">
+                <div class="gallery-placeholder gallery-under-construction">Under construction</div>
             </div>
         </div>
     </section>
