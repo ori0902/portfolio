@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ope Owoyele | CFD + Machine Learning</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">OO</div>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#conferences" class="nav-link">Conferences</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-label">PhD Candidate • Louisiana State University • CFD + ML</div>
+            <h1 class="hero-title">Ope Owoyele</h1>
+            <p class="hero-subtitle">
+                Combining CFD and machine learning to build fast, accurate surrogates for 
+                turbulent reacting flows—from compact flamelet models to physics-informed data-driven methods.
+            </p>
+            <div class="hero-cta">
+                <a href="#research" class="btn btn-primary">View Research</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+            <div class="hero-links">
+                <a href="mailto:hchand5@lsu.edu" class="hero-link">
+                    <span class="link-icon">📧</span>
+                    <span>Email</span>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="hero-link" target="_blank">
+                    <span class="link-icon">💼</span>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/ori0902" class="hero-link" target="_blank">
+                    <span class="link-icon">💻</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://scholar.google.com/yourprofile" class="hero-link" target="_blank">
+                    <span class="link-icon">🎓</span>
+                    <span>Scholar</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section research-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Research & Technical Projects</h2>
+                <p class="section-subtitle">CFD + ML projects: surrogate modeling, solver integration, and validation for reacting flows.</p>
+            </div>
+
+            <div class="research-list">
+                <!-- Project 1: DNK Framework -->
+                <div class="research-item">
+                    <h3>Hybrid-Neural Kernel Modeling of Turbulent Reacting Flows</h3>
+                    <div class="research-meta">Louisiana State University • 2022-Present</div>
+                    <p class="research-summary">
+                        Developed a deep neural kernel (DNK) framework that compresses flamelet tables by 99% (7 GB → 800 KB) 
+                        while preserving accuracy for spray flame simulations. Published in Combustion and Flame (2026).
+                    </p>
+                    <button class="btn-text" onclick="toggleDetails('dnk')">Read more →</button>
+                    
+                    <div id="dnk-details" class="research-details">
+                        <p class="research-narrative">
+                            Designed a Similarity-Ordinated Balanced Clustering (SOBC) algorithm to group 29 chemical 
+                            species for efficient neural-network training, and coupled the ML models with the CONVERGE 
+                            CFD solver through TensorFlow C API and custom Python UDFs.
+                        </p>
+                        <p class="research-narrative">
+                            Validated the surrogate models on 3D ECN Spray A simulations across 800–1100 K, achieving 
+                            &lt;8% error in ignition delay and &lt;5% error in lift-off length while extending the method 
+                            to higher-dimensional UFPV tables.
+                        </p>
+                        <div class="research-link">
+                            <a href="https://doi.org/10.1016/j.combustflame.2025.114635" target="_blank">
+                                View Publication in Combustion and Flame →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Two-Level Simulation - Compressible -->
+                <div class="research-item">
+                    <h3>Two-Level Simulation Model for Compressible Turbulent Scalar Mixing</h3>
+                    <div class="research-meta">UTC Chattanooga • 2022</div>
+                    <p class="research-summary">
+                        Assessed Two-Level Simulation (TLS) modeling assumptions for compressible scalar mixing at 
+                        convective Mach number 0.7 and Reynolds number 640 using Direct Numerical Simulation (DNS) 
+                        with fully compressible solver.
+                    </p>
+                    <button class="btn-text" onclick="toggleDetails('tls-compress')">Read more →</button>
+                    
+                    <div id="tls-compress-details" class="research-details">
+                        <p class="research-narrative">
+                            Applied a scale-separation methodology that decomposes scalar fields into large- and 
+                            small-scale components, solving simplified small-scale equations on embedded 1D lines 
+                            without traditional LES filtering.
+                        </p>
+                        <p class="research-narrative">
+                            Shown that the TLS model captures key subgrid physics, including counter-gradient transport, 
+                            anisotropy, and backscatter, with results presented at the 17th International Workshop on 
+                            Physics of Compressible Turbulent Mixing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3: Two-Level Simulation - Premixed -->
+                <div class="research-item">
+                    <h3>Two-Level Simulation Model for Turbulent Premixed Flames</h3>
+                    <div class="research-meta">UTC Chattanooga • 2022</div>
+                    <p class="research-summary">
+                        Extended Two-Level Simulation framework to turbulent premixed methane-air flames using 4-step, 
+                        8-species mechanism on 256³ grid, validating modeling assumptions for finite-rate chemistry 
+                        in thin reaction zone regime.
+                    </p>
+                    <button class="btn-text" onclick="toggleDetails('tls-flame')">Read more →</button>
+                    
+                    <div id="tls-flame-details" class="research-details">
+                        <p class="research-narrative">
+                            Assessed TLS assumptions across preheat, reaction, and post-flame regions, obtaining 
+                            high correlations for small-scale derivatives and advection terms.
+                        </p>
+                        <p class="research-narrative">
+                            Demonstrated that solving large scales on a coarse 3D grid while modeling small scales on 
+                            1D lines offers a compact alternative to LES for turbulent premixed flames.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 4: Plasma-Assisted Combustion -->
+                <div class="research-item">
+                    <h3>Non-Equilibrium Plasma-Assisted Combustion Kinetics</h3>
+                    <div class="research-meta">Auburn University • 2019-2021</div>
+                    <p class="research-summary">
+                        Built lab infrastructure and designed/operated purpose-built plasma-coupled flow reactor (PFR) 
+                        to investigate non-equilibrium plasma effects on iso-octane pyrolysis and oxidation kinetics 
+                        across 300-1200K temperature range.
+                    </p>
+                    <button class="btn-text" onclick="toggleDetails('plasma')">Read more →</button>
+                    
+                    <div id="plasma-details" class="research-details">
+                        <p class="research-narrative">
+                            Conducted isothermal flow-reactor experiments with nanosecond pulsed plasma discharge, 
+                            analyzing product species via GC-MS and supporting the work with a 0D plasma kinetic 
+                            solver in Fortran coupled to CHEMKIN.
+                        </p>
+                        <p class="research-narrative">
+                            Showed that non-equilibrium plasma markedly accelerates low-temperature fuel decomposition, 
+                            informing the design of low-temperature plasma ignition concepts for advanced engines.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 5: Soot Formation -->
+                <div class="research-item">
+                    <h3>Numerical Study of Soot Formation in Bio-Fuel Diffusion Flames</h3>
+                    <div class="research-meta">Auburn University • 2019-2021</div>
+                    <p class="research-summary">
+                        Developed laminar diffusion flame solver in OpenFOAM integrated with CRECK soot formation 
+                        model to numerically investigate sooting tendencies of IBE/diesel surrogate blends, analyzing 
+                        PAH formation pathways and soot precursor chemistry.
+                    </p>
+                    <button class="btn-text" onclick="toggleDetails('soot')">Read more →</button>
+                    
+                    <div id="soot-details" class="research-details">
+                        <p class="research-narrative">
+                            Investigated soot formation for IBE/diesel surrogate blends in laminar diffusion flames and 
+                            co-authored work presented at the 12th U.S. National Combustion Meeting on cleaner-burning 
+                            alternative fuels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section publications-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Publications</h2>
+                <p class="section-subtitle">Peer-reviewed work at the intersection of CFD and machine learning.</p>
+            </div>
+
+            <div class="publications-list">
+                <div class="publication-card">
+                    <div class="pub-venue">Combustion and Flame • 2026 • Volume 284</div>
+                    <h3 class="pub-title">A deep neural kernel approach with balanced clustering for flamelet modeling of spray flames</h3>
+                    <p class="pub-authors"><strong>Ope Owoyele</strong>, Haresh Chandrasekhar</p>
+                    <p class="pub-abstract">
+                        Introduces a hybrid neural-kernel framework for compact flamelet table representation, achieving 
+                        99% memory reduction (7 GB → 800 KB) while maintaining high accuracy for spray flame simulations 
+                        across 800–1100 K.
+                    </p>
+                    <div class="pub-links">
+                        <a href="https://doi.org/10.1016/j.combustflame.2025.114635" class="pub-link" target="_blank">DOI: 10.1016/j.combustflame.2025.114635</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conferences Section -->
+    <section id="conferences" class="section conferences-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Conference Presentations</h2>
+                <p class="section-subtitle">Conference talks on CFD, ML surrogates, and reacting-flow modeling.</p>
+            </div>
+
+            <div class="conference-grid">
+                <div class="conference-item">
+                    <div class="conference-venue">78th Annual Meeting of the APS Division of Fluid Dynamics • Houston, TX • 2025</div>
+                    <h4 class="conference-title">Hybrid Neural-Kernel Approach for Flamelet Modelling of Turbulent Combustion</h4>
+                    <p class="conference-authors">H. Chandrasekhar, Ope Owoyele</p>
+                </div>
+
+                <div class="conference-item">
+                    <div class="conference-venue">14th U.S. National Combustion Meeting • Boston, MA • 2025</div>
+                    <h4 class="conference-title">A Priori Analysis of a Hybrid Machine Learning Approach to Flamelet Modeling in Turbulent Reacting Flows</h4>
+                    <p class="conference-authors">H. Chandrasekhar, Ope Owoyele</p>
+                </div>
+
+                <div class="conference-item">
+                    <div class="conference-venue">77th Annual Meeting of the APS Division of Fluid Dynamics • Utah • 2024</div>
+                    <h4 class="conference-title">A Hybrid Machine Learning Approach for Flamelet Modelling of Turbulent Reacting Flows</h4>
+                    <p class="conference-authors">H. Chandrasekhar, Ope Owoyele</p>
+                </div>
+
+                <div class="conference-item">
+                    <div class="conference-venue">17th International Workshop on Physics of Compressible Turbulent Mixing • Atlanta, GA • 2022</div>
+                    <h4 class="conference-title">On the Assessment of Two-Level Simulation Model for Numerical Study of Compressible Turbulent Scalar Mixing</h4>
+                    <p class="conference-authors">H. Chandrasekhar, R. Ranjan, S. Menon</p>
+                </div>
+
+                <div class="conference-item">
+                    <div class="conference-venue">12th U.S. National Combustion Meeting • Texas A&M • 2021</div>
+                    <h4 class="conference-title">Non-Equilibrium Plasma Coupled Flow Reactor Studies of Iso-Octane</h4>
+                    <p class="conference-authors">H. Chandrasekhar, N. Tsolas</p>
+                </div>
+
+                <div class="conference-item">
+                    <div class="conference-venue">12th U.S. National Combustion Meeting • Texas A&M • 2021</div>
+                    <h4 class="conference-title">An Experimental and Numerical Study on Sooting Tendencies of IBE/Surrogate Diesel Blends in Laminar Diffusion Flame</h4>
+                    <p class="conference-authors">A. Singh, H. Chandrasekhar, N. Tsolas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">CFD solvers, ML frameworks, and HPC tools I use daily.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>CFD & Simulation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">OpenFOAM</span>
+                        <span class="skill-tag">CONVERGE CFD</span>
+                        <span class="skill-tag">ANSYS Fluent</span>
+                        <span class="skill-tag">DNS</span>
+                        <span class="skill-tag">LES</span>
+                        <span class="skill-tag">RANS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">JAX</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Deep Neural Networks</span>
+                        <span class="skill-tag">Kernel Methods</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Fortran</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Software</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CHEMKIN</span>
+                        <span class="skill-tag">Cantera</span>
+                        <span class="skill-tag">ParaView</span>
+                        <span class="skill-tag">Tecplot</span>
+                        <span class="skill-tag">LaTeX</span>
+                        <span class="skill-tag">HPC/SLURM</span>
+                        <span class="skill-tag">MPI</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>CAD & Meshing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CATIA</span>
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">ICEM CFD</span>
+                        <span class="skill-tag">Pointwise</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Research Areas</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Turbulent Combustion</span>
+                        <span class="skill-tag">Chemical Kinetics</span>
+                        <span class="skill-tag">Plasma Physics</span>
+                        <span class="skill-tag">Data-Driven Modeling</span>
+                        <span class="skill-tag">Spray Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">Open to roles and collaborations in CFD + ML, scientific computing, and reacting-flow modeling.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Ope Owoyele</h3>
+                    <p class="contact-position">PhD Candidate</p>
+                    <p class="contact-university">Louisiana State University<br>Mechanical Engineering Department</p>
+                    
+                    <div class="contact-links">
+                        <a href="mailto:hchand5@lsu.edu" class="contact-link">
+                            <span class="link-icon">📧</span>
+                            <span>hchand5@lsu.edu</span>
+                        </a>
+                        <a href="tel:+13345521513" class="contact-link">
+                            <span class="link-icon">📱</span>
+                            <span>(334) 552-1513</span>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
+                            <span class="link-icon">💼</span>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="https://github.com/ori0902" class="contact-link" target="_blank">
+                            <span class="link-icon">💻</span>
+                            <span>GitHub: ori0902</span>
+                        </a>
+                        <a href="https://scholar.google.com/yourprofile" class="contact-link" target="_blank">
+                            <span class="link-icon">🎓</span>
+                            <span>Google Scholar</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-cta">
+                    <div class="cta-box">
+                        <h3>Collaboration & roles</h3>
+                        <p>Interested in CFD + ML roles: surrogate modeling, solver development, and data-driven 
+                        simulation of reacting flows.</p>
+                        <a href="mailto:hchand5@lsu.edu" class="btn btn-primary">Send Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ope Owoyele. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
